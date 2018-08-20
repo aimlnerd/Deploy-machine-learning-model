@@ -1,6 +1,17 @@
 # Dockerize and deploy machine learning model as REST API using Flask
 A simple Flask application that can serve predictions machine learning model. Reads a pickled sklearn model into memory when the Flask app is started and returns predictions through the /predict endpoint. You can also use the /train endpoint to train/retrain the model.
 
+# Steps for deploying ML model
+
+1. Install Flask
+2. Serialise your model (this can be done using Pickle, or JobLib)
+3. [optional] Serialise your columns
+4. Create a separate [insert name here].py file in the same directory as your serialised model, which will build the web service using Flask
+5. Run [insert name here].py file from terminal/command line
+6. Go to http address to check if its working
+7. Make a http POST call with some data, and receive the prediction back.
+
+
 1. ### Install PIP requirements 
     ```
     pip install -r requirements.txt
@@ -27,42 +38,34 @@ A simple Flask application that can serve predictions machine learning model. Re
     ```
     {"prediction": [0, 1, 1, 0]}
     ```
-    
-    
+        
     ### /train (GET)
     Trains the model. This is currently hard-coded to be a random forest model that is run on a subset of columns of the titanic dataset.
     
     ### /wipe (GET)
     Removes the trained model.
 
-the step by step flow is as follows:
-
-1. Install Flask
-2. Serialise your model (this can be done using Pickle, or JobLib)
-3. [optional] Serialise your columns
-4. Create a separate [insert name here].py file in the same directory as your serialised model, which will build the web service using Flask
-5. Run [insert name here].py file from terminal/command line
-6. Go to http address to check if its working
-7. Make a http POST call with some data, and receive the prediction back.
 
 # Docker commands
-# docker build
-# docker build -t <app name> .
+1. Build docker image from Dockerfile
 
-# docker run
-# docker run ml_app -p 9999 # to make the port externally avaiable for browsers
+    ```docker build -t <app name> .```
+2. Run the docker container after build
 
-# show all running containers
-# docker ps
+    ```docker run ml_app -p 9999 # -p to make the port externally avaiable for browsers```
 
-# Kill and remove running container
-# docker rm <containerid> -f
+3. Show all running containers
+    
+    ```docker ps```
 
-# open bash in a running docker container
-# docker exec -ti <containerid> bash
+    a. Kill and remove running container
+    
+     ```docker rm <containerid> -f ```
 
-# docker compose
-# run and interact between multiple docker containers
+4. Open bash in a running docker container (optional)
+
+    ```docker exec -ti <containerid> bash```
+
 
 Appendix
 - http://docs.python-requests.org/en/latest/index.html
