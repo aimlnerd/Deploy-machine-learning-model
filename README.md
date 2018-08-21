@@ -7,15 +7,15 @@ A simple Flask application that can serve predictions machine learning model. Re
 2. Serialise your scikit-learn model (this can be done using Pickle, or JobLib)
 3. [optional] add column names list to scikit object ex: rf.columns = ['Age', 'Sex', 'Embarked', 'Survived']
 4. Create a separate flask_api.py file which will build the web service using Flask
-    5. To run python flask_api.py <port>
-    6. Go to http address to check if its working
+    1. To run python flask_api.py <port>
+    2. Go to http address to check if its working
 5. Create a dockerfile which does the below items
-    6. Install ubuntu, python and git
-    7. Clone code repo from git or move local python code to /app in container 
-    8. Set WORKDIR to /app
-    9. Install packages in requirements.xt
-    10. Expose the port for flask enpoint
-    11. Define ENTRYPOINT as python main.py 9999
+    1. Install ubuntu, python and git
+    2. Clone code repo from git or move local python code to /app in container 
+    3. Set WORKDIR to /app
+    4. Install packages in requirements.xt
+    5. Expose the port for flask enpoint
+    6. Define ENTRYPOINT as python main.py 9999
 6. Build  docker image
 7. Run docker container 
 8. Make a http POST call with some data, and receive the prediction back using postman or python requests library.

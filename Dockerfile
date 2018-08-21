@@ -4,7 +4,7 @@
 # RUN apt-get update && apt-get install --assume-yes --fix-missing python-pip git
 
 # Clone repository to /app folder in the container image
-# RUN git clone https://github.com/amirziai/sklearnflask.git /app
+# RUN git clone https://github.com/deepakiim/Deploy-machine-learning-model.git /app
 
 #####################################################################################################################
 FROM python:3.6.6-slim
@@ -24,8 +24,8 @@ RUN pip install -r requirements.txt
 
 # Expose port and run the application when the container is started
 EXPOSE 9999
-ENTRYPOINT python main.py 9999
-# CMD ["main.py"]
+ENTRYPOINT python flask_api.py 9999
+# CMD ["flask_api.py"]
 
 
 # docker build
