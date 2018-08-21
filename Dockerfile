@@ -25,6 +25,7 @@ RUN pip install -r requirements.txt
 # Expose port and run the application when the container is started
 EXPOSE 9999
 ENTRYPOINT python main.py 9999
+# CMD ["main.py"]
 
 
 # docker build

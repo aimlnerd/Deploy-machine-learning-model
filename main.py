@@ -30,9 +30,6 @@ def predict():
         try:
             json_ = request.json #capture the json from POST
             query = pd.get_dummies(pd.DataFrame(json_))
-
-            # https://github.com/amirziai/sklearnflask/issues/3
-            # Thanks to @lorenzori
             query = query.reindex(columns=model_columns, fill_value=0)
 
             prediction = list(clf.predict(query))

@@ -14,21 +14,19 @@ print(r.text)
 r = requests.get(f"{host}/wipe")
 print(r.text)
 
-# Appendix
-# http://docs.python-requests.org/en/latest/user/quickstart/#more-complicated-post-requests
-
 '''
-from urlparse import urlparse
-from threading import Thread
-import httplib
+from urllib.parse import urlparse
+import http.client as ht
 
 def getStatus(ourl):
     try:
         url = urlparse(ourl)
-        conn = httplib.HTTPConnection(url.netloc)
+        conn = ht.HTTPConnection(url.netloc)
         conn.request("HEAD", url.path)
         res = conn.getresponse()
         return res.status, ourl
     except:
         return "error", ourl
+
+getStatus(ourl="http://127.0.0.1:5000/train")
 '''

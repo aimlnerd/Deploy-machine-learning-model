@@ -3,16 +3,26 @@ A simple Flask application that can serve predictions machine learning model. Re
 
 # Steps for deploying ML model
 
-1. Install Flask
-2. Serialise your model (this can be done using Pickle, or JobLib)
-3. [optional] Serialise your columns
-4. Create a separate [insert name here].py file in the same directory as your serialised model, which will build the web service using Flask
-5. Run [insert name here].py file from terminal/command line
-6. Go to http address to check if its working
-7. Make a http POST call with some data, and receive the prediction back.
+1. Install Flask and Docker
+2. Serialise your scikit-learn model (this can be done using Pickle, or JobLib)
+3. [optional] add column names list to scikit object ex: rf.columns = ['Age', 'Sex', 'Embarked', 'Survived']
+4. Create a separate flask_api.py file which will build the web service using Flask
+    5. To run python flask_api.py <port>
+    6. Go to http address to check if its working
+5. Create a dockerfile which does the below items
+    6. Install ubuntu, python and git
+    7. Clone code repo from git or move local python code to /app in container 
+    8. Set WORKDIR to /app
+    9. Install packages in requirements.xt
+    10. Expose the port for flask enpoint
+    11. Define ENTRYPOINT as python main.py 9999
+6. Build  docker image
+7. Run docker container 
+8. Make a http POST call with some data, and receive the prediction back using postman or python requests library.
+9. Push the docker container to docker registry / ship to production
 
-
-1. ### Install PIP requirements 
+1. ### Install PIP requirements
+    FYI: The code requries Python 3.6+ to run 
     ```
     pip install -r requirements.txt
     ```
@@ -68,7 +78,7 @@ A simple Flask application that can serve predictions machine learning model. Re
 
 
 Appendix
-- http://docs.python-requests.org/en/latest/index.html
+- http://docs.python-requests.org/en/latest/user/quickstart/#more-complicated-post-requests
 - https://www.ibm.com/developerworks/webservices/library/ws-restful/
 - https://blog.hyperiondev.com/index.php/2018/02/01/deploy-machine-learning-model-flask-api/
 - https://medium.com/@amirziai/a-flask-api-for-serving-scikit-learn-models-c8bcdaa41daa
