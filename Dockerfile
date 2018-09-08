@@ -13,7 +13,8 @@ FROM python:3.6.6-slim
 VOLUME ./:app/
 
 # Copy local directory to /app in container
-COPY * /app/
+# Dont use COPY * /app/ , * will lead to lose of folder structure in /app
+COPY . /app/
 
 # Change WORKDIR
 WORKDIR /app
@@ -23,7 +24,7 @@ WORKDIR /app
 RUN pip install -r requirements.txt
 
 # Expose port and run the application when the container is started
-EXPOSE 9999
+EXPOSE 9999:9999
 ENTRYPOINT python flask_api.py 9999
 # CMD ["flask_api.py"]
 
