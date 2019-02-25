@@ -59,7 +59,9 @@ A simple Flask application that can serve predictions machine learning model. Re
 # Docker commands
 1. Build docker image from Dockerfile
 
-    ```docker build -t <app name> .```
+    ```docker build -t "<app name>" .```
+    ```eg: docker build -t "ml_app" .```
+
 2. Run the docker container after build
 
     ```docker run -p 9999:9999 ml_app  # -p to make the port externally avaiable for browsers```
@@ -78,10 +80,10 @@ A simple Flask application that can serve predictions machine learning model. Re
 
 
 Appendix
+- https://blogs.technet.microsoft.com/machinelearning/2018/03/15/demystifying-docker-for-data-scientists-a-docker-tutorial-for-your-deep-learning-projects/
 - http://docs.python-requests.org/en/latest/user/quickstart/#more-complicated-post-requests
 - https://www.ibm.com/developerworks/webservices/library/ws-restful/
 - https://docs.docker.com/develop/develop-images/dockerfile_best-practices/
 - https://ropenscilabs.github.io/r-docker-tutorial/04-Dockerhub.html
 - https://blog.hyperiondev.com/index.php/2018/02/01/deploy-machine-learning-model-flask-api/
 - https://medium.com/@amirziai/a-flask-api-for-serving-scikit-learn-models-c8bcdaa41daa
-- https://blogs.technet.microsoft.com/machinelearning/2018/03/15/demystifying-docker-for-data-scientists-a-docker-tutorial-for-your-deep-learning-projects/
