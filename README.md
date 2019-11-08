@@ -56,7 +56,8 @@ A simple Flask application that can serve predictions machine learning model. Re
     Removes the trained model.
 
 
-# Docker commands
+# Docker commands 
+Note: Docker tag or id should be always specified in the end of the docker command to avoid issues
 1. Build docker image from Dockerfile
 
     ```docker build -t "<app name>" .```
