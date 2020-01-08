@@ -60,8 +60,8 @@ A simple Flask application that can serve predictions machine learning model. Re
 Note: Docker tag or id should be always specified in the end of the docker command to avoid issues
 1. Build docker image from Dockerfile
 
-    ```docker build -t "<app name>" .```
-    ```eg: docker build -t "ml_app" .```
+    ```docker build -t "<app name>" -f docker-files/Dockerfile .```
+    ```eg: docker build -t "ml_app" -f docker-files/Dockerfile .```
 
 2. Run the docker container after build
 
