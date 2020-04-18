@@ -78,7 +78,18 @@ Note: Docker tag or id should be always specified in the end of the docker comma
 4. Open bash in a running docker container (optional)
 
     ```docker exec -ti <containerid> bash```
+5. Docker Entry point
+The ENTRYPOINT specifies a command that will always be executed when the container starts. The CMD specifies arguments that will be fed to the ENTRYPOINT
+1683
 
+Docker has a default ENTRYPOINT which is /bin/sh -c but does not have a default CMD.
+--entrypoint in docker run will overwrite the default entry point
+    ```docker run -it --entrypoint /bin/bash <image>```
+
+I WANT TO CONNECT FROM A CONTAINER TO A SERVICE ON THE HOST
+The host has a changing IP address (or none if you have no network access). From 18.03 onwards our recommendation is to connect to the special DNS name host.docker.internal, which resolves to the internal IP address used by the host. This is for development purpose and will not work in a production environment outside of Docker Desktop for Mac.
+
+The gateway is also reachable as gateway.docker.internal.
 
 Appendix
 - https://blogs.technet.microsoft.com/machinelearning/2018/03/15/demystifying-docker-for-data-scientists-a-docker-tutorial-for-your-deep-learning-projects/
