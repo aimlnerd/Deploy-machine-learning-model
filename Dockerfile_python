@@ -1,0 +1,20 @@
+FROM python:3.8.4-slim-buster
+
+# Set the working directory to /app
+WORKDIR /opt/app
+
+RUN apt-get update && apt-get clean
+
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
+
+COPY ./ .
+
+RUN pip3 install -r requirements.txt
+
+# to avoid ModuleNotFoundError: No module named 'api'
+ENV PYTHONPATH="$PYTHONPATH:/"
+
+EXPOSE 8000
+ENTRYPOINT ["python3", "api/main.py"]
