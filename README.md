@@ -91,6 +91,11 @@ The host has a changing IP address (or none if you have no network access). From
 
 The gateway is also reachable as gateway.docker.internal.
 
+To avoid ModuleNotFoundError: No module named 'api'
+add this line to docker file
+ENV PYTHONPATH="$PYTHONPATH:/"
+and insure that __init__.py exists in necessary folders
+
 Appendix
 - https://blogs.technet.microsoft.com/machinelearning/2018/03/15/demystifying-docker-for-data-scientists-a-docker-tutorial-for-your-deep-learning-projects/
 - http://docs.python-requests.org/en/latest/user/quickstart/#more-complicated-post-requests
