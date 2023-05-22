@@ -5,7 +5,7 @@ flask==1.0.2
 numpy>=1.15.0
 scipy>=1.1.0
 pandas>=0.23.3
-requests==2.20.0
+requests==2.31.0
 scikit-learn>=0.19.1
 
 
